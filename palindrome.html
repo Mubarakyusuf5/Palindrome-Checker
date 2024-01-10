@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body class=>
+    <div class="container col-md-4 bg-dark text-light p-4 mt-5">
+        <h2 class="text-center">Palindrome Checker</h2>
+        <input type="text" id="text" class="form-control mt-3" placeholder="Enter a word" onkeypress="handleKeyPress(event)">
+        <button onclick="rev()" class="btn btn-warning my-3">Check</button>
+        <P id="value"></P>
+    </div>
+   <script>
+    function rev(){
+        var words = document.querySelector('#text').value;
+        var value = document.querySelector('#value')
+        var reversed = "";
+        value.style="font-weight: bold; font-size: 18px;"
+        
+        for(let i= words.length-1; i>=0; i--){
+            reversed = reversed+words[i]
+        }
+        if(words == ""){
+            value.innerHTML="Enter a word"
+        }
+        else if(words == reversed){
+            value.innerHTML=reversed + " is a palindrome"
+        }
+        else{
+            value.innerHTML=reversed + " is not a palindrome"
+        }
+            return reversed;
+    }
+
+    function handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            rev();
+        }
+    }
+
+   </script> 
+</body>
+</html>
